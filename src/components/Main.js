@@ -1,8 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import FilterControl from './FilterControl'
 import GetProducts from './GetProducts'
+import FilterComponent from './FilterComponent'
 
 const Main = () => {
+  const [showFilter, setShowFilter] = useState(true)
+  
   return (
     <main className='main-container'>
         <div className='main-header-container'>
@@ -12,8 +15,11 @@ const Main = () => {
             </p>
         </div>
 
-        <FilterControl />
-        <GetProducts />
+        <FilterControl showFilter={setShowFilter} filter={showFilter} />
+        <div className='main-content-container'>
+          {showFilter && <FilterComponent />}
+          <GetProducts />
+        </div>
     </main>
   )
 }

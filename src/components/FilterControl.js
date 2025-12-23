@@ -1,7 +1,11 @@
 import React from 'react'
 import {RecommendedOptions} from './Data'
 
-const FilterControl = () => {
+const FilterControl = ({showFilter, filter}) => {
+  const handleClick = () => {
+    showFilter(preState => !preState)
+  }
+
   return (
     <div className='filter-control-container'>
         <div className='filter-content'>
@@ -9,7 +13,7 @@ const FilterControl = () => {
 
             <div>
                 <p>{'<'}</p>
-                <button type="button">HIDE FILTER</button>
+                <button type="button" onClick={handleClick}>{filter ? 'HIDE FILTER' : 'SHOW FILTER'}</button>
             </div>
         </div>
 
