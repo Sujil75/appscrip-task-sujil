@@ -16,11 +16,20 @@ const FilterControl = ({showFilter, filter}) => {
                 <button type="button" onClick={handleClick}>{filter ? 'HIDE FILTER' : 'SHOW FILTER'}</button>
             </div>
         </div>
+                
+        <div className='mobile-filter-component'>
+          <h5>FILTER</h5>
+        </div>
 
-        <select>
+        <hr className='filter-control-hr' />
+
+        <div className='filter-sort-container'>
+          <select>
             {RecommendedOptions.map(option =>
-                <option value={option.value} key={option.id}>{option.value}</option>)}
-        </select>
+              <option value={option.value} key={option.id}>{option.value}</option>
+            )}
+          </select>
+        </div>
     </div>
   )
 }
